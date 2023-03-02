@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CS3-4 6.1 Intro to JS Objects</title>
+</head>
+
+<body>
+  <h1>Introduction to JavaScript Objects</h1>
+  <main>
+    <section>
+      <h2>Notes</h2>
+
+
+      <h3>Abstraction</h3>
+      <p>
+        <i>Abstraction</i> in programming is the idea of removing the complicated details from something so we can think about
+        it in terms of simpler, bigger pieces.<br><br>
+        <code>moveRight();</code><br>
+        Is easier to think about than<br>
+        <code>var e = document.getElementById("block");<br>
+          e.style.left += 10;
+        </code><br>
+        even though they accomplish the same things. This is essentially the idea of abstraction in programming.
+
+      </p>
+
+
+      <h3>Functional Programming</h3>
+      <p>
+        So far, most of the programming we have been doing is what is called <i>procedural</i> or <i>functional</i>
+        programming.<br>
+        In this style of programming, the program script is executed from top to bottom inside a
+        "main" function with some other helper functions.<br>
+        <br>
+        <u>Functional Code Example</u><br>
+        <code>
+          <pre>
+var num1 = prompt("Enter a start number");
+var num2 = prompt("Enter an end number");
+findSum();
+
+function findSum(){
+  var sum = 0;
+  for (var i = num1; i &lt;=num2; i++) {
+    sum += i;
+  }
+  alert("The sum from " num1 + " to " + num2 + " is " + sum);
+}
+          </pre>
+        </code>
+      </p>
+
+
+      <h3>Object-oriented programming</h3>
+      <p>
+        <i>Object</i> -oriented programming is the idea of creating data structures in our programs that represent “objects” in
+        the common sense of the word - “things”.
+
+        Programs still have a main function and helper functions, but much of the program data and execution is handled
+        within these objects.
+
+        <i>Objects</i> increase the level of abstraction ultimately making it easier to think about how to build the program
+
+        <i>Object</i>-oriented programming is modern programming
+      </p>
+
+
+      <h3>Objects - the concept</h3>
+      <p>
+        Right now, we can store data using specific data types: strings, integers, floats, and Booleans.
+        It works, but it's hard to think about because it's not how we naturally think about the world.
+        We think about the world in terms of whole “things” and then we can think about the pieces that make up the
+        “things” and the actions that the “things” can take.
+        This is exactly how object-oriented programming works. <i> Objects</i> are “things” and a new data type!
+      </p>
+
+
+      <h3>Objects</h3>
+      <p>
+       <i> Objects</i> have two basic parts:
+      <ol>
+        <li>The data or information that describes the object (variables)</li>
+        <li>The actions that the object can take (functions)</li>
+      </ol>
+      </p>
+
+
+      <h3>Defining JavaScript objects</h3>
+      <p>
+        In JS, object variables are called <b>properties</b> and the object actions are functions referred to as
+        <b>methods</b>.<br>
+        Objects are a new variable data type and must be <b>defined</b> (created) first, like any other variable.
+      </p>
+      <div style="display: flex;">
+
+
+        <pre style="margin: 10px;">
+<u><b>Object definition syntax</b></u><code>
+var objName = {
+  property1: value,
+  property2: value,
+  method1: function() {
+    // function code
+  }
+}
+        </code>
+            </pre>
+        <pre style="margin: 10px;">
+<u><b>Object definition example</b></u><code>
+var player = {
+  name: "Nathan",
+  health: 100,
+  damage: 10,
+  attack: function() {
+    // code to attack
+  },
+  takeDamage: function() {
+    // code to take damage
+  }
+}
+</code>
+            </pre>
+      </div>
+
+
+      <h3>"this" keyword</h3>
+      <p>
+        Properties in an object are essentially the same as variables declared using var, except they are “contained”
+        within the object. This means, you can't refer to the properties without referring to object itself ex.
+        <code>player.name</code>. In order to access the object properties to use or change their values from <i>methods</i>
+        inside the object, you must
+        use the keyword <code>this</code> to refer to the object.<br>
+        <br>
+        <u>Example</u>
+        <code>
+          <pre>
+var player = {
+  health: 100,
+  takeDamage: function() {
+    <b>this.health -= 5;</b>
+  }
+}
+          </pre>
+        </code>
+      </p>
+
+      <h3>Object definition example</h3>
+      <p>In the object-intro.js file,</p>
+      <ol>
+        <li>Define a player object in the script section provided that has some of the properties we listed together
+        </li>
+        <li>Define a method to show an alert with the player's name and health</li>
+        <li>Define a method to take damage (subtract some amount from the player's health)</li>
+      </ol>
+
+
+      <h3>Accessing JavaScript object properties and methods</h3>
+      <p>
+        After an object is defined, you can use the following syntax to access the object's properties and methods.
+      </p>
+      <div style="display: flex;">
+
+
+        <pre style="margin: 10px;">
+<u><b>Property access syntax</b></u><code>
+objName.propertyName
+or
+objName["propertyName"]
+(two different ways of doing the same thing)
+
+<u><b>Method access syntax</b></u>
+objName.methodName();
+</code>
+            </pre>
+        <pre style="margin: 10px;">
+<u><b>Property access example</b></u><code>
+player.name = "Jason";
+player["name"] = "Norman";
+alert(player.name);
+var hp = player.health;
+
+<u><b>Method access example</b></u>
+player.attack();
+</code>
+            </pre>
+      </div>
+
+
+      <h3>Property and Method Access Example</h3>
+      <p>In the object-intro.js,</p>
+      <ol>
+        <li>Use <code>alert()</code> or <code>console.log()</code> to print the object property values</li>
+        <li>Access the methods</li>
+        <li>Update property values and output the result</li>
+      </ol>
+    </section>
+
+
+    <section>
+      <h2>Problem #1 - Pizza object</h2>
+      <p>Define a pizza object that has the given properties and methods.</p>
+      <h3>Properties</h3>
+      <ul>
+        <li>size "large"</li>
+        <li>toppings "pepperoni and jalapeno</li>
+        <li>cost 11.95</li>
+      </ul>
+      <h3>Methods</h3>
+      <ul>
+        <li>show - uses the properties to construct a string that says "A large pizza with pepperoni and jalapeno is
+          $11.95" and then display it in an alert or print it to the console</li>
+      </ul>
+      <p>Test your object by programmatically changing the properties and then calling the show() method. Your pizza
+        object should print using the new values.</p>
+    </section>
+
+
+    <section>
+      <h2>Problem #2 - Student object</h2>
+      <p>Define a student object that has the given properties and methods. Use your own information for the property values.</p>
+      <h3>Properties</h3>
+      <ul>
+        <li>first-name</li>
+        <li>last-name</li>
+        <li>age</li>
+        <li>grade</li>
+        <li>matric</li>
+      </ul>
+      <h3>Methods</h3>
+      <ul>
+        <li>show-name() - uses an alert to display the first and last name</li>
+        <li>show-info() - uses an alert to display all the object data. Ex "Xavier Soto, age: 15, grade: 9, matric: 081312390</li>
+      </ul>
+      <p>Again, test your object by setting the properties to different values and verifying that your methods still work correctly</p>
+    </section>
+
+  </main>
+</body>
+<script src="object-intro.js"></script>
+<style>
+  section {
+    margin: 10px;
+    padding: 10px;
+  }
+</style>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>6.3 Functions with one parameter</title>
+</head>
+
+<body>
+  <h1>6.3 Functions with one parameter</h1>
+  <section>
+    <h2>Objectives</h2>
+    <ul>
+      <li>To be able to correctly define and call functions that have one  <i>parameter</i></li>
+    </ul>
+  </section>
+  <section>
+    <h2>Notes</h2>
+    <h3>Function review</h3>
+    <p><b>Recall:</b> functions are a way of grouping together a set of instructions with a name. We use functions to
+      make
+      code modular (reusable) and to increase the level of abstraction to make our coding projects easier to think
+      about<br>
+      <br>
+      <u>Example function definition</u>
+      <code>
+        <pre>
+function myFunction() {
+  // JS statements
+}
+        </pre>
+      </code>
+      <u>Example object function (method) definition</u>
+      <code>
+        <pre>
+var myObject = {
+  myFunction: function() {
+    // JS statements
+  }
+}
+        </pre>
+      </code>
+      <h3>Calling functions</h3>
+      To call (use or execute) the function, you just write then name of the function with () wherever you want
+      execution to jump to your function to execute its code.<br>
+      <br>
+      <u>Example function call</u>
+      <code>
+        <pre>
+// Script statements before
+myFunction();
+// Script statements after
+        </pre>
+      </code>
+      <u>Example object function (method) call</u>
+      <code>
+        <pre>
+// Script statements before
+myObject.myFunction();
+// Script statements after
+        </pre>
+      </code>
+    </p>
+    <h3>Parameters</h3>
+    <p>
+      <b>Recall:</b> <i>Parameter</i> are how we get data into a function that it needs to do its work. Parameter values can
+      be passed to the function as a literal value like "message" or in a variable<br>
+      <br>
+      <u>Example function calls with one parameter</u>
+      <code>
+        <pre>
+// "Important message" is a literal string value parameter for the alert() function
+alert("Important message!");
+
+// msg is a variable holding the value for the parameter in the console.log() function
+var msg = "Log message";
+console.log(msg);
+        </pre>
+      </code>
+    </p>
+    <h3>Defining functions with parameters</h3>
+    <p>
+      To define a function with one <i>parameter</i>, you just need to put a variable name inside the () of the function
+      definition<br>
+      <br>
+      <u>Syntax</u>
+      <code>
+        <pre>
+function myFunction(paramName){
+  // JS statements
+}
+        </pre>
+      </code>
+      When you call this function, you must now supply a value for the parameter variable<br>
+      <code>myFunction("Value");</code><br>
+      The parameter, <code>paramName</code>, will now contain the string <code>"Value"</code> to use inside the function.
+    </p>
+  </section>
+
+  <section>
+    <h2>Function Definition Example</h2>
+    <p>In this example, we will write a function called <code>doubleNumber()</code> that will take one number as a parameter, double
+      it, then print the result an alert or in the console. Then we will test it by calling the function with several
+      different values for the parameter.</p>
+    <button onclick="example()">Test <code>doubleNumber()</code></button>
+  </section>
+
+  <section>
+    <h2>Problem #1 Square function</h2>
+    <p>Write a function named <code>square()</code> that takes in a parameter and squares it. Squaring a number means multiplying it
+      by itself. Then
+      make several calls to that function in your start function to test it out. Does it work for all arguments?</p>
+    <button onclick="problem1()">Test <code>square()</code></button>
+  </section>
+
+  <section>
+    <h2>Problem #2 Triple function</h2>
+    <p>Write a function called <code>triple()</code> that triples a number and prints it out. Then in your start function, make several
+      calls to the triple function to test it out.<br>
+      <br>
+      Notice how the call to the function interrupts the sequential execution of statements. The program jumps down to
+      the function and once the last statement in the function (or a return statement) has executed, the flow of control
+      is returned to the point immediately following where the function was called.
+    </p>
+    <button onclick="problem2()">Test <code>triple()</code></button>
+  </section>
+</body>
+
+<script src="one-param-functions.js"></script>
+
+<style>
+  section {
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: beige;
+    border-radius: 8px;
+  }
+
+  h1 {
+    text-align: center;
+  }
+
+  h2 {
+    border-bottom: 2px solid brown;
+  }
+</style>
+
+</html>

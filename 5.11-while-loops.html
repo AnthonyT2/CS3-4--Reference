@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>While Loops</title>
+</head>
+
+<body>
+  <h1>While loops</h1>
+  <section>
+    <h2>Notes</h2>
+    <p>
+      <i> While</i> loops repeat a set of commands while a <i>Boolean-valued condition</i> is true. Another way to think
+      about it is a
+      <i>while</i> loop will repeat a set of commands until a <i>condition</i> is false<br>
+      <b><i>Recall:</i></b><i> Boolean conditions</i> are usually formed with <i>conditional</i> operators like
+      <code>&lt;, &gt;, ==, !=</code><br>
+      <br>
+      <u>Syntax</u><br>
+      <code>
+      <pre>
+while (conditionIsTrue) {
+  // Keep doing these statements
+}     
+      </pre>
+      </code> <br>
+      <b style="color: white; background-color: red;">WARNING: There must be a way for the <i>condition</i> to become
+        false or
+        you will create an infinite loop and likely crash your program, freezing the browser tab</b><br>
+      <br>
+      <u>Example 1</u><br>
+      This script will use a <i>while</i> loop with a counter to print out the <i>values</i> of the counter (basic but
+      important). The
+      user will enter the number and our script will print out all the numbers up to what the user entered starting with
+      0 and ending before the <i> value.</i>
+    </p>
+    <input id="ex1-num" type="number" placeholder="How high to count">
+    <button onclick="example1()">Print counter</button>
+    <p id="ex1-output">Output will appear here</p>
+    <script>
+      function example1() {
+        //get number user entered 
+        var max = parseInt (document.getElementById("ex1-num").value);
+        //get var to hold output paragraph
+        var p = document.getElementById("ex1-output");
+        p.innerText = "";
+        //create counter var
+        var counter = 0;
+        //while loop that will concatenate numbers into p until max is reached
+        while (counter < max) {
+          //cocatenate counter with paragraph text
+          p.innerHTML += counter + " ";
+          //add one to the counter each iteration so it will eventually be greater than
+          counter++;
+
+
+        }
+      }
+    </script>
+
+    <p>
+      <u>Example 2</u><br>
+      This example will create an infinite loop and freeze the browser tag. Refresh to and/or close the tab to fix it.
+    </p>
+
+    <button onclick="example2()">Start infinite loop</button>
+    <script>
+      function example2() {
+        //create a counter var
+        var counter = 0;
+        //create a while loop with condition
+        while (counter < 67) {
+          //dont update counter, condition will never be false, bam infinite loop
+        }
+      }
+    </script>
+
+    <p>
+      <a id="example-3"></a>
+      <u>Example 3</u><br>
+      This example will use a while loop to repeatedly prompt the user to guess the password "<i>taco</i>".<br>
+      <b>Bonus #1:</b> Limit the number of guesses to 5.<br>
+      <b>Bonus #2:</b> Give a hint whether their guess comes before or after the password alphabetically
+    </p>
+
+    <button onclick="example3()">Guess password</button>
+    <script>
+      function example3() {
+        // create var to store password
+        var password = "taco"
+        //create var to store user guess
+        var guess = ""
+        //create to track guesses
+        var numGuesses = 0;
+        //repeatedly prompt user to guess until they get it 
+        while (guess != password && numGuesses <5 
+        ) {
+          guess = prompt("enter your guess")
+          numGuesses++;
+
+        }
+      }
+    </script>
+  </section>
+
+  <section>
+    <h2>Problem 1</h2>
+    <p>Use a while loop to find the sum between two numbers supplied by the user. Same as the for loop problem, but
+      using a while loop. Remember, you will need to use <code>document.getElementById("name")</code> to get the input
+      and output elements stored into variables and <code>parseInt()</code> to convert the input values to integers.</p>
+    <input id="p1-num1" type="number" placeholder="Enter start number">
+    <input id="p1-num2" type="number" placeholder="Enter end number">
+    <button onclick="problem1()">Find sum</button>
+    <p id="p1-output">Output will appear here</p>
+    <script>
+      function problem1() {
+
+      }
+    </script>
+  </section>
+
+  <section>
+    <h2>Problem 2</h2>
+    <p>
+      Use a while loop to repeatedly prompt the user guess a magic number of your choice (7, 13, 69, 420 are fine
+      choices, but surpise me! Decimals are a possibility too....). Refer to <a href="#example-3">Example 3</a> for a
+      model.<br>
+      <b>Bonus #1:</b> Limit the number of guesses to 5.<br>
+      <b>Bonus #2:</b> Give a hint whether their guess is too low or too high
+    </p>
+    <button onclick="problem2()">Guess number</button>
+    <script>
+      function problem2() {
+
+      }
+    </script>
+  </section>
+
+  <section>
+    <h2>Problem 3</h2>
+    <p>Write a function that uses a while loop to repeatedly generate and print random integers between 1 and 50 until
+      it generates the number the user entered</p>
+    <input id="p3-num" type="number" placeholder="Enter the number to stop at" value="25">
+    <button onclick="problem3()">Pick random numbers</button>
+    <p id="p3-output">Output will appear here</p>
+    <script>
+      function problem3() {
+        //create a var to store user entered num
+        var number = " "
+        //create a var to store guess
+        var generatedNum = " "
+      }
+    </script>
+  </section>
+</body>
+
+<style>
+  section {
+    padding: 10px 20px;
+    min-height: 50vh;
+  }
+</style>
+
+</html>

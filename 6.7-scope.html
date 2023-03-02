@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>6.6 Scope</title>
+</head>
+
+<body>
+  <h1>6.6 Scope</h1>
+  <section>
+    <h2>Objectives</h2>
+    <ul>
+      <li>To be able to identify the scope of a variable</li>
+    </ul>
+  </section>
+  <section>
+    <h2>Notes</h2>
+    <h3>Scope</h3>
+    <p>Variables have to be defined before they exist: <code>var text;</code>. However, just because you define a
+      variable in one part of your code, it doesn't necessarily exist at another point in your code. This is the idea
+      of scope. The scope of a variable is where it exists. The <b>scope</b> of a variable is determined by what level of {} it
+      is defined in. </p>
+    <h3>Global scope vs. <i>local</i> scope</h3>
+    <p>
+      Variables with a global <b>scope</b> exist everywhere in the script. To have global <b>scope,</b> variables must be defined in
+      the root of the document (not inside a function)
+    </p>
+    <p>Variables with <i>local</i> <b>scope</b> only exist inside the {} of the function in which they were created. So, a variable
+      defined inside one
+      function doesn't exist inside another function. That is why you can have two different variables with the same
+      name in different functions and why if you create a variable inside a function, you can't refer to it from another
+      function. Parameters are <i>local</i> variables.
+    </p>
+    <code>
+      <pre>
+<span style="color:darkseagreen">// Root level of document
+
+// myGlobalVar doesn't exist yet because it hasn't been declared
+// The following line would produce a reference error;</span>
+console.log(myGlobalVar);
+<span style="color:darkseagreen">
+// Variables declared at the root level have global scope</span>
+<span style="color:cornflowerblue">var</span> myGlobalVar = <span style="color:peru">"I exist everywhere after this line"</span>;
+
+<span style="color:darkseagreen">// Variables declared insided functions have local scope - only exist inside the function</span>
+<span style="color:cornflowerblue">function</span> myFunction() {
+  <span style="color:darkseagreen">// Local variable</span>
+  <span style="color:cornflowerblue">var</span> myLocalVar = <span style="color:peru">"I only exist in this function after this line"</span>;
+}
+
+<span style="color:darkseagreen">// The following line would produce an error because myLocalVar was declared inside myFunction()</span>
+console.log(myLocalVar);
+      </pre>
+    </code>
+
+  </section>
+
+  <section>
+    <h2>Exercise</h2>
+    <p>
+      Use a comment to label every variable in the scope.js file as either local or <i>global.</i>
+    </p>
+  </section>
+</body>
+
+<script src="scope.js"></script>
+
+<style>
+  section {
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: lightgray;
+    border-radius: 8px;
+  }
+
+  pre {
+    background-color: rgb(36, 36, 36);
+    color: white;
+    padding: 10px;
+  }
+
+  h1 {
+    text-align: center;
+  }
+
+  h2 {
+    border-bottom: 2px solid blue;
+  }
+</style>
+
+</html>

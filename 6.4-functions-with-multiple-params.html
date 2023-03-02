@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>6.4 Functions with multiple parameters</title>
+</head>
+
+<body>
+  <h1>6.4 Functions with multiple parameters</h1>
+  <section>
+    <h2>Notes</h2>
+    <p>
+      Last time we learned to add a parameter to our function definitions. Sometimes we might need more data that just
+      one parameter. Luckily, we can define functions to have as many parameters as we want. To define multiple
+     <i> parameters</i> , we just need to define multiple variable names in the function's () separated by commas.<br>
+      <br>
+      <u>Function definition with multiple <i>parameters</i> </u>
+      <code>
+        <pre>
+function myFunction(param1, param2, param3){
+  // Function statements
+}
+        </pre>
+      </code>
+    </p>
+  </section>
+
+  <section id="graphic-container">
+
+  </section>
+
+  <section>
+    <h2>Practice exercises</h2>
+    <ol>
+      <li>Look at the <code>drawCircle(100, 50, 25);</code> function call and the <i>parameter</i> variables in the <code>drawCircle()</code> function definition then modify the start
+        function to draw a second circle on the right side of the screen that has a diameter of 25px</li>
+      <li>Modify the start function to draw
+        a third circle that is centered in the window. Use the <code>getWidth()</code> and <code>getHeight()</code>
+        functions that I provided to
+        help you calculate where to position the circle. It should be centered no matter what the screen size is</li>
+      <li>Analyze the <code>drawCircle()</code> function to understand how it works. Then, add a fourth parameter
+        <code>color</code>
+        to specify the color of the circle</li>
+      <li>Using the <code>drawCircle()</code> function as a model, write a
+        <code>drawSquare(width, xPos, yPos, color)</code> function that will draw a square
+      </li>
+      <li>Define a <code>drawRect()</code> function with that takes the parameters width, heigth, xPos, and yPos</li>
+      <li>Define a <code>randomCircles()</code> function that takes two parameters, the number of circles to draw and
+        the color, to draw the specified number of circles at random locations. Circles should have a radius of 20px.
+        (You will need a for or while loop to call the <code>drawCircle()</code> function repeatedly)</li>
+    </ol>
+    <button onclick="start()">Start test</button>
+  </section>
+</body>
+
+<style>
+  body {
+    background-color: darkgray;
+  }
+
+  h1 {
+    text-align: center;
+  }
+
+  #graphic-container {
+    background-color: white;
+    position: relative;
+    top: 0;
+    min-height: 50vh;
+  }
+
+  li {
+    margin: 5px;
+  }
+</style>
+
+<script src="mult-param-functions.js"></script>
+
+</html>

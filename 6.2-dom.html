@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>6.2 Document Object Model (DOM)</title>
+</head>
+
+<body>
+  <h1>6.2 Document Object Model (DOM)</h1>
+  <main>
+    <section>
+
+      <h2>Notes</h2>
+
+      <h3>Function <i>parameters and return</i> values</h3>
+      <p>
+        As we continue learning about objects and functions there are two concepts that we need to be comfortable with:
+        <b>parameters</b> and <b>return values</b>
+      <ul>
+        <li>
+          <i>Parameters</i> are a way of passing data into a function that the function needs to do its work<br>
+          Syntax: <code>someFunction(<i>parameter</i>)</code><br>
+          Example: <code>console.log("Hello");</code> <code>"Hello"</code> is the parameter given to the
+          <code>console.log()</code> function which then prints the value to the console
+        </li>
+        <li>
+          <i>Return values</i> are a way for functions to pass data back after doing their work<br>
+          Example: <code>var num = Math.random();</code> The <code>Math.random()</code> function does its work of
+          generating a random number and then <i>returns</i> the value which is then stored in the variable
+          <code>num</code>
+        </li>
+      </ul>
+      Functions can have both <i>parameters and return </i> values. Functions can also have multiple parameters. We will study
+      functions with <i>parameters and return</i> values in more detail in the coming lessons.
+      </p>
+
+      <h3>The Document Object Model (DOM)</h3>
+      <p>
+        Now that we have an understanding of <i>objects</i>, we can understand how webpages (HTML and CSS) are
+        represented in JavaScript. The Document Object Model (DOM) is a standardized way to represent all the elements
+        and styles of a website as JavaScript <i>objects</i>. Essentially, every element (link, div, paragraph, etc.) in
+        a webpage is represented as an object in JS. All the attributes and styles of the element are <i>properties</i>
+        of the object and each element object has methods for doing useful things such as adding/removing CSS classes.
+      </p>
+
+      <h3>The document object</h3>
+      <p>
+        When the browser loads a webpage, it generates an object named <code>document</code> that represents the entire
+        webpage as a JS object. The <code>document</code> object has properties that contain all the other elements on
+        the screen as well as methods for finding specific elements and adding/removing elements in the page
+      </p>
+
+      <h3>Methods for finding HTML elements</h3>
+      <table>
+        <tr>
+          <th>Method</th>
+          <th>Description</th>
+        </tr>
+        <tr>
+          <td><code>document.getElementById(<i>id</i>)</code></td>
+          <td>Finds and returns an element by its html id attribute</td>
+        </tr>
+        <tr>
+          <td><code>document.getElementsByTagName(<i>tagName</i>)</code></td>
+          <td>Finds and returns a list* of all the elements with the given tag name</td>
+        </tr>
+        <tr>
+          <td><code>document.getElementsByClassName(<i>className</i>)</code></td>
+          <td>Finds and returns a list* of all the elements with the given class name</td>
+        </tr>
+      </table>
+      *Note: We haven't learned about lists yet but we will soon. For now, don't worry about these methods
+
+      <h3>Methods for adding and deleting elements</h3>
+      <table>
+        <tr>
+          <th>Method</th>
+          <th>Description</th>
+        </tr>
+        <tr>
+          <td><code>document.createElement(<i>tagName</i>)</code></td>
+          <td>Returns an HTML element with the given tag name. Does not add it to the document, though</td>
+        </tr>
+        <tr>
+          <td><code>document.appendChild(<i>element</i>)</code></td>
+          <td>Adds the element to the end of the document. You would use this after creating the element first</td>
+        </tr>
+        <tr>
+          <td><code>document.removeChild(<i>element</i>)</code></td>
+          <td>Removes the element from the document</td>
+        </tr>
+      </table>
+
+      <h3>Accessing HTML element properties and methods</h3>
+      <table>
+        <tr>
+          <th>Property</th>
+          <th>Description</th>
+        </tr>
+        <tr>
+          <td><code>element.innerHTML</code></td>
+          <td>
+            Contains the HTML inside the element as a string value<br>
+            Ex: <code>element.innerHTML = "New plain text or html";</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>element.attribute</code></td>
+          <td>
+            Contains the element attribute (ex. id, href, style) as a string value<br>
+            Ex: <code>element.href = "page.html";</code> would change the hyperlink reference for an
+            <code>&lt;a&gt;</code> tag
+          </td>
+        </tr>
+        <tr>
+          <td><code>element.style.property</code></td>
+          <td>
+            Contains the element style property<br>
+            Ex: <code>element.style.backgroundColor = "red";</code> would change the background color of the element to
+            red
+          </td>
+        </tr>
+      </table>
+    </section>
+
+    <section>
+      <h2>Example 1</h2>
+      <p>
+        Below are some html elements. We will use <code>document.getElementById()</code> to find each element, store it
+        in a variable, and change some of its properties. 
+        <ul>
+          <li>Change the link href to http://www.pueblocs.org, and the link display text to Pueblo CS Website.</li>
+          <li>Change the text color and background color of the paragraph</li>
+        </ul> 
+      </p>
+      <a id="my-link" href="http://www.google.com">Hyperlink element</a>
+      <p id="my-paragraph">A paragraph element</p>
+      <script>
+        var link = document.getElementById("my-link");
+        link.href = "https://www.pueblocs.org";
+        link.innerHTML = "Pueblo CS Website"
+
+        var p = document.getElementById("my-paragraph")
+        p.style.color = "red"
+        p.style.backgroundColor = "orange"
+
+
+      </script>
+    </section>
+
+    <section>
+      <h2>Example 2</h2>
+      <p>
+        Below is an unordered list element. We will use <code>document.getElementById()</code> to find the element, store it in a
+        variable, and then use a for loop to add a bunch of items to the list.
+      </p>
+      <ul id="my-list"></ul>
+      <script>
+        var list = document.getElementById("my-list");
+        for (var i = 0; i < 5; i++){
+          var item = document.getElementById("li");
+          //item.innerHTML = prompt("enter something");
+          list.appendChild(item);
+        }
+
+
+      </script>
+    </section>
+
+    <section>
+      <h2>Practice Problem</h2>
+      <p>Below is a <code>div</code> element. Use JS and the DOM to do the following:</p>
+      <ol>
+        <li>Change the background of the <code>div</code> to gray</li>
+        <li>Create a new paragraph element</li>
+        <li>Set the text of the paragraph to "Yay the document object model rules!"</li>
+        <li>Append the paragraph element to the <code>div</code></li>
+      </ol>
+      <div id="my-div">
+        <h4>Div heading</h4>
+      </div>
+      <script>
+        var div = document.getElementById("my-div")
+        
+
+      </script>
+    </section>
+  </main>
+</body>
+
+<style>
+  h1 {
+    text-align: center;
+  }
+
+  section {
+    width: 80%;
+    margin: 20px auto;
+    background-color: lightcyan;
+    padding: 10px;
+    border-radius: 8px;
+  }
+
+  th,
+  td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+
+  td {
+    vertical-align: middle;
+  }
+
+  tr:nth-child(odd) {
+    background-color: rgb(196, 224, 224);
+  }
+</style>
+
+</html>
